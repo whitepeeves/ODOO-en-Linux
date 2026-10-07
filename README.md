@@ -5,7 +5,7 @@ Mismo procedimiento que la guía *Desplegar Odoo en Linux* (SGE), empaquetado en
 | Guía SGE | Aquí |
 |---|---|
 | Paso 1-2 apt + dependencias | `Dockerfile` (apt-get) |
-| Paso 3 PostgreSQL | Servicio Postgres de Railway |
+| Paso 3 PostgreSQL + rol `odoo` | Servicio Postgres de Railway; `entrypoint.sh` crea el rol `odoo` y la BD `odoo` (Odoo no admite el usuario `postgres`) |
 | Paso 4 usuario `odoo` | `Dockerfile` (adduser) + `gosu` |
 | Paso 5 git clone 18.0 | `Dockerfile` |
 | Paso 6 venv + requirements | `Dockerfile` |
