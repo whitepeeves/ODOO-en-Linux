@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Paso 4: usuario de servicio (el de Ubuntu 24.04 con UID 1000 se elimina antes)
 RUN userdel -r ubuntu 2>/dev/null || true \
- && adduser --system --home=/opt/odoo --group odoo
+ && useradd --system --create-home --home-dir /opt/odoo --user-group --shell /usr/sbin/nologin odoo
 
 # Paso 5: código de Odoo (rama 18.0, descarga superficial)
 RUN git clone https://github.com/odoo/odoo.git --depth 1 --branch 18.0 /opt/odoo/odoo
